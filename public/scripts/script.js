@@ -17,9 +17,9 @@ $(document).ready(function () {
 				var autoplay = false;
 				var autoTime = 3000;
 				var tracker = 0,
-  				slidewindow = document.querySelector("#slideshow #slidewindow"),
-  				slides = document.querySelectorAll("#slideshow #slidewindow .imgslide"),
-  				nbslide = document.querySelectorAll("#slideshow #slidewindow .slide"),
+  				slidewindow = document.querySelector("#slideshow .content"),
+  				slides = document.querySelectorAll("#slideshow .content .imgslide"),
+  				nbslide = document.querySelectorAll("#slideshow .content .slide"),
 			    next = document.querySelector("#slideshow #controls #next"),
 			    prev = document.querySelector("#slideshow #controls #prev"),
 			    dots = document.querySelector("#slideshow #controls #dots"),
@@ -99,6 +99,7 @@ $(document).ready(function () {
 				    //get id from target
 				    var idVal = eventObject.target.id;
 
+				    console.log(idVal);
 				    console.log(slides.length);
 
 				    if (idVal === "next" && tracker > 1 - slides.length) {
@@ -114,8 +115,6 @@ $(document).ready(function () {
 				    }
 				    updateAll();
 				  }
-
-
 
 				  //updateDots
 				  function updateDots(n) {
@@ -184,7 +183,7 @@ $(document).ready(function () {
 				    yDown = null;
 				  };
 
-	      	$("#slideshow #slidewindow").append('<div class="imgslide"><img src="'+ srcimg + '"><div class="text"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div></div>');
+	      	$("#slideshow .content .imgslide").append('<div class="slide"><img src="'+ srcimg + '"><div class="text"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div></div>');
 	      	//$("#slideshow .tabs").append('<div class="tab-slide"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div>');
 	      	$("#slideshow").css({"height":height+"px"});
 	      	$("#slideshow .slide img").css({"height":height+"px"});
