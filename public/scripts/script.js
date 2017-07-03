@@ -10,8 +10,8 @@ window.onload = function() {
 
   //vars
   var tracker = 0,
-    slidewindow = document.querySelector("#slideshow #slidewindow"),
-    slides = document.querySelectorAll("#slideshow #slidewindow div"),
+    slidewindow = document.querySelector("#slideshow .content"),
+    slides = document.querySelectorAll("#slideshow .content .slide"),
     next = document.querySelector("#slideshow #controls #next"),
     prev = document.querySelector("#slideshow #controls #prev"),
     dots = document.querySelector("#slideshow #controls #dots"),
@@ -102,7 +102,7 @@ window.onload = function() {
     for (var i = 0; i < allDots.length; i++) {
       allDots[i].className = "";
     }
-    allDots[n].className = "active";
+    //allDots[n].className = "active";
   }
 
   //swipe event listeners
