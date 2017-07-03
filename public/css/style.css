@@ -3,7 +3,9 @@ html, body{
     height: 100%;
     margin: 1%;
     padding: 0;    
-    background: #000;}
+    background: #000;
+    overflow: hidden;
+}
 
 #slideshow img{
     width: 100%;
@@ -14,10 +16,8 @@ html, body{
     display: inline-block;
     position: relative;
     height: auto;
-    width: 25%;
 }
 .content{
-    width: 3676px;
     height: 100%;
 }
 #slideshow{
@@ -28,79 +28,182 @@ html, body{
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px 10px 0 0;
-
 }
 #slideshow:hover .desc{
     opacity: 1;
 }
 
-#fntbar{
-    width: 100%;
-    background-color: #0d0dd4;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 2%;
-}
-#barre{
-    width: 0;
-    background-color: #0d0dd4;
-    height: 100%;
-}
-#buttons{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    text-align: center;
-    width: 100%;
-    display: none;
-    z-index: 1;
-}
-#buttons img{
-    width: 50px;
-    height: auto;       
-}
-#slideshow:hover #buttons{
+.slide .title {
     display: block;
-}
-#before{
-    float: left;
-}
-#next{
-    float: right;
-}
-
-.title {
-    position: absolute;
-    bottom: 30%;
     right: 10%;
     padding: 10px;
-    color: #000;
-    border-radius: 10px;
+    color: #FFF;
     text-align: center;
-    background: rgba(255, 255, 255, 0.5);
     opacity: 1;
     font-family: 'Arial Black';
     text-transform: uppercase;
-    -moz-box-shadow: 1px 10px 10px #000000;
-    -webkit-box-shadow: 1px 10px 10px #000000;
-    box-shadow: 1px 10px 10px #000000;
     font-size: 30px;
 }
 
-.description{
-    position: absolute;
-    bottom: 10%;
+.tabs .title {
+    display: block;
     right: 10%;
     padding: 10px;
-    color: #000;
-    border-radius: 10px;
+    color: #FFF;
     text-align: center;
-    background: rgba(255, 255, 255, 0.5);
     opacity: 1;
     font-family: 'Arial Black';
     text-transform: uppercase;
-    -moz-box-shadow: 1px 10px 10px #000000;
-    -webkit-box-shadow: 1px 10px 10px #000000;
-    box-shadow: 1px 10px 10px #000000;
+    font-size: 15px;
 }
+
+.tabs .description {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    opacity: 1;
+    font-family: 'Arial Black';
+    font-size: 12px;
+}
+
+.slide .description {
+    display: block;
+    color: #FFF;
+    text-align: center;
+    opacity: 1;
+    font-family: 'Arial Black';
+    font-size: 14px;
+}
+
+
+.text {
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+}
+
+
+#slideshow {
+  position: relative;
+  margin: auto;
+  max-width: 1500px;
+  margin: 24px auto;
+}
+
+#slideshow #slidewindow {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 13px #777777;
+}
+
+#slideshow #slidewindow div {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  -webkit-transition: left .5s ease;
+  transition: left .5s ease;
+}
+
+#slideshow #slidewindow div img {
+  display: block;
+  width: 100%;
+}
+
+#slideshow #controls {
+  position: absolute;
+    text-align: center;
+    height: 72px;
+    width: 100%;
+    top: 50%;
+    display: none;
+}
+
+#slideshow #controls * {
+  -webkit-transition: -webkit-transform .125s ease;
+  -webkit-transition: -webkit-transform .125s;
+  transition: -webkit-transform .125s;
+  transition: transform .125s;
+  transition: transform .125s, -webkit-transform .125s;
+}
+
+#slideshow:hover #controls{
+    display: block;
+}
+#slideshow #controls #next,
+#slideshow #controls #prev {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 12px;
+  cursor: pointer;
+}
+
+#slideshow #controls #next {
+  float: right;
+}
+
+#slideshow #controls #prev {
+  float: left;
+}
+
+#slideshow #controls #next div,
+#slideshow #controls #prev div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+#slideshow #controls #next div, #slideshow #controls #prev div {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+#slideshow #controls #next div {
+  border-left: 20px solid #111111;
+}
+
+#slideshow #controls #prev div {
+  border-right: 20px solid #111111;
+}
+
+#slideshow #controls #dots {
+  margin: auto;
+  display: inline-block;
+  padding: 0;
+  list-style-type: none;
+  width: auto;
+}
+
+#slideshow #controls #dots li {
+  display: inline-block;
+  border: 2px solid #111111;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 30px 4px;
+}
+
+#slideshow #controls #dots li.active {
+  background: #111111;
+}
+
+#slideshow #controls #dots li:hover,
+#slideshow #controls #next:hover,
+#slideshow #controls #prev:hover {
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25);
+}
+
+#slideshow #controls #dots li:active,
+#slideshow #controls #next:active,
+#slideshow #controls #prev:active {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
