@@ -10,21 +10,18 @@
 <body>
 
 <div class="slideshow-container">
-<div class="mySlides fade">
-<div class="text">Caption Text</div>
+<div class="mySlides fade none">
 </div>
 
 
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="before" onclick="plusSlides(-1)">&#10094;</a>
 <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
 </div>
 <br>
 
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
+<div class="bulletpoint" style="text-align:center">
+  <span class="dot none"></span>
 </div>
 
     <script src="public/scripts/jquery-2.2.2.min.js"></script>
@@ -35,7 +32,7 @@
 		showSlides(slideIndex);
 
 		function plusSlides(n) {
-		  showSlides(slideIndex += n);
+			 showSlides(slideIndex += n);
 		}
 
 		function currentSlide(n) {
@@ -65,6 +62,7 @@
 
 		  slides[slideIndex-1].style.display = "block";  
 		  dots[slideIndex-1].className += " active";
+		  setTimeout(showSlides, 1000);
 		}
     </script>
 
