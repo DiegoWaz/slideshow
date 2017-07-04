@@ -6,6 +6,7 @@ $(document).ready(function () {
 		$('#next').click(plusSlides);
 		$('#before').click(plusSlides);
 
+		
 
 		function plusSlides(n) {
 			 showSlides(slideIndex += n);
@@ -19,6 +20,7 @@ $(document).ready(function () {
 		  var i;
 		  var slides = document.getElementsByClassName("mySlides");
 		  var dots = document.getElementsByClassName("dot");
+		  
 
 		  if (n > slides.length) {
 		  	slideIndex = 1
@@ -55,7 +57,7 @@ $(document).ready(function () {
 				var height = 600;
 				
  	      	//$(".slideshow-container").append('<div class="imgslide"><img src="'+ srcimg + '"><div class="text"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div></div>');
- 	      	$(".slideshow-container").prepend('<div class="mySlides fade"><img src="'+ srcimg + '" style="width:100%"><h1>'+ titleimg +'</h1><div class="text">'+ descimg +'</div></div>');
+ 	      	$(".slideshow-container").prepend('<div class="mySlides fade"><img src="'+ srcimg + '"style="width:100%"><div id="container"><h1>'+ titleimg +'</h1><h2>'+ descimg +'</h2></div></div>');
 // 	      	//$("#slideshow .tabs").append('<div class="tab-slide"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div>');
 	      	$(".mySlides img").css({"height":height+"px"});
 // 	      	$("#slideshow .slide img").css({"height":height+"px"});
@@ -68,5 +70,21 @@ $(document).ready(function () {
 	   	
 		}
 
+    $(document).ready(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+        }),
+
+        $(".next").click(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+        }),
+        $(".prev").click(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+    	});
+    });
+
 	 })
-});
+
+
