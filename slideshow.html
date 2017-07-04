@@ -8,63 +8,25 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
 <body>
+<header>
+	<nav class="">
+	</nav>
+</header>
+<section>
+	<div class="slideshow-container">
+		<div class="mySlides fade none"></div>
+		<a class="before">&#10094;</a>
+		<a class="next">&#10095;</a>
+	</div>
+</section>
 
-<div class="slideshow-container">
-<div class="mySlides fade none">
-</div>
+<div class="bulletspoint"><span class="dot none"></span></div>
 
-
-<a class="before" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-</div>
-<br>
-
-<div class="bulletpoint" style="text-align:center">
-  <span class="dot none"></span>
-</div>
+<footer>
+	
+</footer>
 
     <script src="public/scripts/jquery-2.2.2.min.js"></script>
     <script src="public/scripts/script.js"></script>
-
-    <script>
-    	var slideIndex = 1;
-		showSlides(slideIndex);
-
-		function plusSlides(n) {
-			 showSlides(slideIndex += n);
-		}
-
-		function currentSlide(n) {
-		  showSlides(slideIndex = n);
-		}
-
-		function showSlides(n) {
-		  var i;
-		  var slides = document.getElementsByClassName("mySlides");
-		  var dots = document.getElementsByClassName("dot");
-
-		  if (n > slides.length) {
-		  	slideIndex = 1
-		  }
-
-		  if (n < 1) {
-		  	slideIndex = slides.length
-		  }
-
-		  for (i = 0; i < slides.length; i++) {
-		      slides[i].style.display = "none";  
-		  }
-
-		  for (i = 0; i < dots.length; i++) {
-		      dots[i].className = dots[i].className.replace(" active", "");
-		  }
-
-		  slides[slideIndex-1].style.display = "block";  
-		  dots[slideIndex-1].className += " active";
-		  setTimeout(showSlides, 1000);
-		}
-    </script>
-
 </body>
 </html> 
