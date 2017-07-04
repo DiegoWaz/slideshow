@@ -7,7 +7,6 @@ body {
     margin:0
     background-color: #262114;
 background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
-/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 /* Slideshow container */
 .slideshow-container {
@@ -37,6 +36,9 @@ background-image: url("https://www.transparenttextures.com/patterns/diamond-upho
   border-radius: 3px 0 0 3px;
 }
 
+.bulletpoint {
+    text-align: center;
+}
 
 /* Caption text */
 .text {

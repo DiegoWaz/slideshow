@@ -103,7 +103,7 @@ $(document).ready(function () {
 	 	    }
 
 	 	   	for (i = 0; i < ListSlide.length; i++) {
-		   		$(".bulletpoint").append('<span class="dot" onclick="currentSlide('+ i +')"></span>');
+		   		$(".bulletpoint").append('<span class="dot"></span>');
 		   		$(".none").remove();
 			}
 	 	})
