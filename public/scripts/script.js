@@ -6,6 +6,9 @@ $(document).ready(function () {
 
 		play();
 
+		
+
+
 		function play() {
 			var slides = $(".mySlides");
 			if(slideIndex <= slides.length) {
@@ -69,6 +72,32 @@ $(document).ready(function () {
 
 			slides[slideIndex-1].style.display = "block";  
 			dots[slideIndex-1].className += " active";
+
+		function showSlides(n) {
+		  var i;
+		  var slides = document.getElementsByClassName("mySlides");
+		  var dots = document.getElementsByClassName("dot");
+		  
+
+		  if (n > slides.length) {
+		  	slideIndex = 1
+		  }
+
+		  if (n < 1) {
+		  	slideIndex = slides.length
+		  }
+
+		  for (i = 0; i < slides.length; i++) {
+		      slides[i].style.display = "none";  
+		  }
+
+		  for (i = 0; i < dots.length; i++) {
+		      dots[i].className = dots[i].className.replace(" active", "");
+		  }
+		  
+		  slides[slideIndex-1].style.display = "block";  
+		  dots[slideIndex-1].className += " active";
+
 		}
 
 		// Récupération des infos via l'url
@@ -84,6 +113,7 @@ $(document).ready(function () {
 				var titleimg  = ListSlide[slide].title;
 				var descimg  = ListSlide[slide].desc;
 				var height = 600;
+
 				var width = 100;
 					
 	 	      	$(".slideshow-container").prepend('<div class="mySlides fade"><img src="'+ srcimg + '"><h1>'+ titleimg +'</h1><div class="text">'+ descimg +'</div></div>');
@@ -101,3 +131,38 @@ $(document).ready(function () {
 			}
 		})
 });
+
+				
+ 	      	//$(".slideshow-container").append('<div class="imgslide"><img src="'+ srcimg + '"><div class="text"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div></div>');
+ 	      	$(".slideshow-container").prepend('<div class="mySlides fade"><img src="'+ srcimg + '"style="width:100%"><div id="container"><h1>'+ titleimg +'</h1><h2>'+ descimg +'</h2></div></div>');
+// 	      	//$("#slideshow .tabs").append('<div class="tab-slide"><span class="title">'+ titleimg +'</span><span class="description">'+ descimg +'</span></div>');
+	      	$(".mySlides img").css({"height":height+"px"});
+// 	      	$("#slideshow .slide img").css({"height":height+"px"});
+ 	   }
+
+ 	   	for (i = 0; i < ListSlide.length; i++) {
+
+	   		$(".bulletpoint").append('<span class="dot" onclick="currentSlide('+i+')"></span>');
+	   		$(".none").remove();
+	   	
+		}
+
+    $(document).ready(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+        }),
+
+        $(".next").click(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+        }),
+        $(".prev").click(function(){
+        $("#container h1").animate({letterSpacing: "+=10px"},1500);
+        $("#container h1").animate({letterSpacing: "-=10px"},1500);
+    	});
+    });
+
+	 })
+
+
+

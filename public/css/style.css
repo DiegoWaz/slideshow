@@ -45,6 +45,11 @@ body {
   background-color: rgba(0,0,0,0.8);
 }
 
+#container h1{
+border:0px solid red;
+}
+/* Caption text */
+
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -104,7 +109,84 @@ body {
 }
 
 @media only screen and (max-width: 300px) {
+
   .before, .next,.text {
     font-size: 11px
     }
+
+  .before, .next,.text {font-size: 11px}
 }
+
+
+#controls {
+  position: absolute;
+    text-align: center;
+    height: 72px;
+    width: 100%;
+    top: 35%;
+    display: none;
+}
+
+#controls * {
+  -webkit-transition: -webkit-transform .125s ease;
+  -webkit-transition: -webkit-transform .125s;
+  transition: -webkit-transform .125s;
+  transition: transform .125s;
+  transition: transform .125s, -webkit-transform .125s;
+}
+
+.slideshow-container:hover #controls{
+    display: block;
+}
+.next,
+.prev {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
+}
+
+.next div,
+.prev div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.next div, .prev div {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
+
+.next div:hover, .prev div:hover {
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
+.next div {
+  border-left: 20px solid #111111;
+}
+
+.next div:hover {
+  border-left: 25px solid #FFF;
+}
+
+.prev div {
+  border-right: 20px solid #111111;
+}
+.prev div:hover {
+  border-right: 25px solid #FFF;
