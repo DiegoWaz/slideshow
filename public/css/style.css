@@ -1,55 +1,54 @@
-* {
-    box-sizing:border-box
-}
-
-body {
-    font-family: Verdana,sans-serif;
-    margin: 0;
-    background: #000;
-}
+* {box-sizing:border-box}
+body {font-family: Verdana,sans-serif;margin:0}
 
 .mySlides {
-    display: none;
+   display: none;
 }
 
 .mySlides:first-child {
-    display: block;
+   display: block;
 }
 
+.slideshow-container {
+     max-width: 1000px;
+     position: relative;
+     margin: 5% auto;
+}
+
+.before, .next {
+ cursor: pointer;
+ position: absolute;
+ top: 50%;
+ width: auto;
+ padding: 16px;
+ margin-top: -22px;
+ color: white;
+ font-weight: bold;
+ font-size: 18px;
+ transition: 0.6s ease;
+ border-radius: 0 3px 3px 0;
+}
+
+/* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
   position: relative;
   margin: auto;
 }
 
-.before, .next {
-  cursor: pointer;
+#container{
   position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.before:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+    bottom: 5%;
+    color: #FFF;
+    padding-left: 20px;
+    background-color: rgba(184, 185, 185, 0.09);
+    width: 100%;
 }
 
 #container h1{
 border:0px solid red;
 }
 /* Caption text */
-
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -68,6 +67,13 @@ border:0px solid red;
   top: 0;
 }
 
+.bulletpoint {
+    position: absolute;
+    left: 50%;
+    bottom: 40%;
+}
+
+/* The dots/bullets/indicators */
 .dot {
   cursor:pointer;
   height: 13px;
@@ -83,10 +89,7 @@ border:0px solid red;
   background-color: #717171;
 }
 
-.bulletspoint {
-    text-align:center
-}
-
+/* Fading animation */
 .fade {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
@@ -100,20 +103,12 @@ border:0px solid red;
 }
 
 @keyframes fade {
-  from {
-    opacity: .4
-} 
-  to {
-    opacity: 1
-}
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
+/* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
-
-  .before, .next,.text {
-    font-size: 11px
-    }
-
   .before, .next,.text {font-size: 11px}
 }
 
@@ -139,7 +134,7 @@ border:0px solid red;
     display: block;
 }
 .next,
-.prev {
+.before {
   position: relative;
   width: 48px;
   height: 48px;
@@ -151,12 +146,12 @@ border:0px solid red;
   float: right;
 }
 
-.prev {
+.before {
   float: left;
 }
 
 .next div,
-.prev div {
+.before div {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -167,12 +162,12 @@ border:0px solid red;
   pointer-events: none;
 }
 
-.next div, .prev div {
+.next div, .before div {
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
 }
 
-.next div:hover, .prev div:hover {
+.next div:hover, .before div:hover {
   border-top: 25px solid transparent;
   border-bottom: 25px solid transparent;
 }
@@ -185,8 +180,10 @@ border:0px solid red;
   border-left: 25px solid #FFF;
 }
 
-.prev div {
+.before div {
   border-right: 20px solid #111111;
 }
-.prev div:hover {
+
+.before div:hover {
   border-right: 25px solid #FFF;
+}
