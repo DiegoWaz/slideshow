@@ -8,6 +8,15 @@ body {font-family: Verdana,sans-serif;margin:0}
   margin: auto;
 }
 
+#container{
+  position: absolute;
+    bottom: 5%;
+    color: #FFF;
+    padding-left: 20px;
+    background-color: rgba(184, 185, 185, 0.09);
+    width: 100%;
+}
+
 #container h1{
 border:0px solid red;
 }
@@ -124,10 +133,23 @@ border:0px solid red;
   border-bottom: 20px solid transparent;
 }
 
+.next div:hover, .prev div:hover {
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+}
+
 .next div {
   border-left: 20px solid #111111;
 }
 
+.next div:hover {
+  border-left: 25px solid #FFF;
+}
+
 .prev div {
   border-right: 20px solid #111111;
+}
+
+.prev div:hover {
+  border-right: 25px solid #FFF;
 }
