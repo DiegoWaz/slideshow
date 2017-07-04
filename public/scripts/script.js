@@ -1,14 +1,16 @@
 $(document).ready(function () {
 
 		var slideIndex = 1;
-		var timeout = 3000;
+		var timeout = 4000;
+		var thatInterval = 0;
 		var timeoutAnimate = 1500;
 		showSlidesArrow(slideIndex);
 
         function play() {
-            var slides = $(".mySlides");
-                thatInterval = setInterval(function(){
+
+             thatInterval = setInterval(function(){
                 showSlidesArrow(slideIndex ++);
+                if (slideIndex> slides.length) {slideIndex = 1} 
             }, timeout);
         }
 
@@ -29,26 +31,18 @@ $(document).ready(function () {
         // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
         $(".slideshow-container").mouseover(function(){
             clearInterval(thatInterval);
-
-            $(".slideshow-container").prepend('');
             $(".pause").css("display", "block");
-	           
         });        
 
         // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
-        $(".slideshow-container").mouseout(function(){
-            play();
+        $(".slideshow-container").mouseout(function(n){
+            play(n);
             $(".pause").css("display", "none");
         });
 
         // Direction slide
         function plusSlides(n) {
             showSlidesArrow(slideIndex += n);
-        }
-
-        // Slide actuel
-        function currentSlide(n) {
-        	showSlidesArrow(slideIndex = n);
         }
 
         function showSlidesArrow(n) {
@@ -72,7 +66,7 @@ $(document).ready(function () {
             }
 
             slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += "active";
+            dots[slideIndex-1].className += " active";
         }
 
 		$.ajax({
@@ -90,10 +84,6 @@ $(document).ready(function () {
 				var height = 600;
 				var width = 100;
 
-	    		// Mettre en pause lorsqu'on passe la souris par dessus le slideshow
-	            $(".slideshow-container").mouseover(function(){
-	                clearInterval(thatInterval);
-	            });
 
 			    $(".slideshow-container").prepend('<div class="mySlides fade"><img src="'+ srcimg + '"><div id="container"><h1>'+ titleimg +'</h1><h2>'+ descimg +'</h2></div></div>');
 	            $(".mySlides img").css({
@@ -103,7 +93,7 @@ $(document).ready(function () {
 	 	    }
 
 	 	   	for (i = 0; i < ListSlide.length; i++) {
-		   		$(".bulletpoint").append('<span class="dot"></span>');
+		   		$(".bulletpoint").append('<span class="dot" onclick="currentSlide('+ i +')"></span>');
 		   		$(".none").remove();
 			}
 	 	})

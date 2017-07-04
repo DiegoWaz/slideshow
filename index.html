@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="public/css/style.css">
-<style>
-
-
-</style>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Slideshow</title>
+    <meta name="description" content="Mon slideshow">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900i" rel="stylesheet">
+  </head>
 <body>
 
-<div class="slideshow-container">
-	<div class="mySlides fade none"></div>
-	<div class="pause"><img src="public/img/circle-pause.png"></div>
-	<a class="before">&#10094;</a>
-	<a class="next">&#10095;</a>
-</div>
+<header></header>
+<section>
+    <div class="slideshow-container">
+        <div class="mySlides fade none"></div>
+        <div class="pause"><img src="public/img/circle-pause.png"></div>
+        <a class="before">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
 
-<br>
+    <br>
 
-<div class="bulletpoint">
-  <span class="dot none"></span>
-</div>
+    <div class="bulletpoint">
+      <span class="dot none"></span>
+    </div>
+</section>
+<footer></footer>
+
+<script>
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    var i;
+    var slides = $(".mySlides");
+    var dots = $(".dot");
+      if (n > slides.length) {
+        slideIndex = 1
+    } else if (n < 1) {
+        slideIndex = slides.length
+    }
+
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+} 
+</script>
 
     <script src="public/scripts/jquery-2.2.2.min.js"></script>
     <script src="public/scripts/script.js"></script>
