@@ -1,40 +1,39 @@
 $(document).ready(function () {
 
 		var slideIndex = 1;
+		var timeout = 3000;
+		var timeoutAnimate = 1500;
 		showSlidesArrow(slideIndex);
-
-        play();
 
         function play() {
             var slides = $(".mySlides");
-            if(slides.length < 5) {
-                    thatInterval = setInterval(function(){
-                    showSlidesArrow(slideIndex ++);
-                }, 5000);
-            }
-        }
-
-        function pause(){
-            clearInterval(thatInterval);
+                thatInterval = setInterval(function(){
+                showSlidesArrow(slideIndex ++);
+            }, timeout);
         }
 
         // Aller au slide suivant
         $(".next").click(function(){
             plusSlides(1);
-            $("#container h1").animate({letterSpacing: "+=10px"},1500);
-            $("#container h1").animate({letterSpacing: "-=10px"},1500);
+            $("#container h1").animate({letterSpacing: "+=10px"},timeoutAnimate);
+            $("#container h1").animate({letterSpacing: "-=10px"},timeoutAnimate);
         });
 
         // Aller au slide précédent
         $(".before").click(function(){
             plusSlides(-1);
-            $("#container h1").animate({letterSpacing: "+=10px"},1500);
-            $("#container h1").animate({letterSpacing: "-=10px"},1500);
+            $("#container h1").animate({letterSpacing: "+=10px"},timeoutAnimate);
+            $("#container h1").animate({letterSpacing: "-=10px"},timeoutAnimate);
         });
 
         // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
         $(".slideshow-container").mouseover(function(){
             clearInterval(thatInterval);
+        });        
+
+        // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
+        $(".slideshow-container").mouseout(function(){
+            play();
         });
 
         // Direction slide
@@ -55,9 +54,7 @@ $(document).ready(function () {
 
             if (n > slides.length) {
                 slideIndex = 1
-            }
-
-            if (n < 1) {
+            } else if (n < 1) {
                 slideIndex = slides.length
             }
 
@@ -81,12 +78,12 @@ $(document).ready(function () {
 	     	var ListSlide = jQuery.parseJSON(msg);
 
 		    for (slide in ListSlide) {
-				    var srcimg = ListSlide[slide].url;
-					var titleimg  = ListSlide[slide].title;
-					var descimg  = ListSlide[slide].desc;
-					var id  = ListSlide.length;
-					var height = 600;
-					var width = 100;
+			    var srcimg = ListSlide[slide].url;
+				var titleimg  = ListSlide[slide].title;
+				var descimg  = ListSlide[slide].desc;
+				var id  = ListSlide.length;
+				var height = 600;
+				var width = 100;
 
 	    		// Mettre en pause lorsqu'on passe la souris par dessus le slideshow
 	            $(".slideshow-container").mouseover(function(){
