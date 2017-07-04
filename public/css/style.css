@@ -208,10 +208,23 @@ border:0px solid red;
 
 .next {
   float: right;
+   top: 35%;
+    position: absolute;
+    font-size: 40px;
 }
 
 .before {
   float: left;
+    top: 35%;
+    position: absolute;
+    font-size: 40px;
+}
+
+.pause{
+
+  position: absolute;
+    left: 45%;
+    top: 35%;
 }
 
 .next div,
