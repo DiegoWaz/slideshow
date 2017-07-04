@@ -29,28 +29,17 @@ $(document).ready(function () {
         // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
         $(".slideshow-container").mouseover(function(){
             clearInterval(thatInterval);
+
+            $(".slideshow-container").prepend('');
+            $(".pause").css("display", "block");
+	           
         });        
 
         // Mettre en pause lorsqu'on passe la souris par dessus le slideshow
         $(".slideshow-container").mouseout(function(){
             play();
+            $(".pause").css("display", "none");
         });
-
-         $("#playOrStop").click(function(){
-        var action = $(this).attr('action');
-
-        if(action === 'play') {
-            refreshIntervalId = setInterval(fonctionNext,2000);
-            $(this).attr('action', 'stop');
-            $(this).attr('src', 'public/img/circle-pause.png');
-        }
-        else{
-            clearInterval(refreshIntervalId);
-            $(this).attr('action', 'play');
-            $(this).attr('src', 'public/img/circle-play.png');
-        }
-    	});
-
 
         // Direction slide
         function plusSlides(n) {
