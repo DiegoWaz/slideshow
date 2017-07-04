@@ -36,6 +36,22 @@ $(document).ready(function () {
             play();
         });
 
+         $("#playOrStop").click(function(){
+        var action = $(this).attr('action');
+
+        if(action === 'play') {
+            refreshIntervalId = setInterval(fonctionNext,2000);
+            $(this).attr('action', 'stop');
+            $(this).attr('src', 'public/img/circle-pause.png');
+        }
+        else{
+            clearInterval(refreshIntervalId);
+            $(this).attr('action', 'play');
+            $(this).attr('src', 'public/img/circle-play.png');
+        }
+    	});
+
+
         // Direction slide
         function plusSlides(n) {
             showSlidesArrow(slideIndex += n);
@@ -67,7 +83,7 @@ $(document).ready(function () {
             }
 
             slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
+            dots[slideIndex-1].className += "active";
         }
 
 		$.ajax({
